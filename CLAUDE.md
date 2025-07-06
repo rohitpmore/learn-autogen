@@ -5,8 +5,8 @@ This project is designed as a comprehensive learning journey combining Microsoft
 
 ## Learning Progress Tracker
 
-### Current Status: Lesson 2 Complete, Moving to Lesson 3 ⏳
-**Last Updated:** 2025-01-05
+### Current Status: Lesson 3 In Progress - Design Patterns Complete ⏳
+**Last Updated:** 2025-01-06
 **Environment:** Python 3.13, UV package manager, AutoGen v0.6.2+
 
 ### Phase 1: Foundation & Environment
@@ -40,8 +40,8 @@ This project is designed as a comprehensive learning journey combining Microsoft
   - **Next:** Modular design patterns for async agent systems
 
 - [ ] **Lesson 3: Modular Design in Async Context** - IN PROGRESS ⏳
-  - [ ] Design patterns for async code
-  - [ ] Dependency injection patterns
+  - [x] Design patterns for async code (Factory Pattern implemented)
+  - [x] Dependency injection patterns (AgentBuilder with DI implemented)
   - [ ] Error handling in async environments
   - [ ] Code refactoring into modules
 
@@ -71,6 +71,8 @@ This project is designed as a comprehensive learning journey combining Microsoft
 learn-autogen/
 ├── src/                     # ✅ Production-ready modular code
 │   ├── agents/             # ✅ Agent implementations
+│   │   ├── factory.py      # ✅ Factory Pattern for model client creation
+│   │   └── builder.py      # ✅ Dependency Injection for agent creation
 │   ├── models/             # ✅ Model client configurations  
 │   ├── tools/              # ✅ Custom tools for agents
 │   ├── config/             # ✅ Configuration management
@@ -78,9 +80,13 @@ learn-autogen/
 │       └── async_examples.py # ✅ Async fundamentals and concurrency patterns
 ├── notebooks/              # ✅ Learning & experimentation
 │   ├── personal/          # ✅ Personal experimentation space
-│   │   └── async_autogen.ipynb # ✅ Async AutoGen experiments
-│   ├── 1-introduction/    # ✅ Initial AutoGen exploration
-│   │   └── first_agent.ipynb # ✅ First agent implementation
+│   │   ├── 1-async/       # ✅ Async fundamentals
+│   │   ├── 2-agentchat-fundamentals/ # ✅ AgentChat experiments
+│   │   └── 3-modular-design/ # ✅ Design patterns demonstrations
+│   │       └── factory_demo.ipynb # ✅ Factory and DI pattern usage
+│   ├── class/             # ✅ Class exercises
+│   │   └── 1-introduction/ # ✅ Initial AutoGen exploration
+│   │       └── first_agent.ipynb # ✅ First agent implementation
 │   └── shared/            # ✅ Notebook utilities
 ├── tests/                  # ✅ Test suite structure
 ├── examples/               # ✅ Standalone examples
@@ -102,11 +108,19 @@ learn-autogen/
 - **Multi-Agent Coordination:** RoundRobinGroupChat enables agent collaboration
 - **Production Guardrails:** Multi-agent systems require termination conditions to prevent infinite loops
 
-**Questions for Next Session:**
-- How do AutoGen's message types structure conversations?
-- What are the different model client configuration patterns?
-- How do agents maintain conversation context and memory?
-- What are the best practices for agent specialization?
+**Lesson 3 Insights (In Progress):**
+- **Factory Pattern Success:** Created ModelClientFactory with strategy-based model client creation
+- **Dependency Injection Implementation:** AgentBuilder class successfully implements DI pattern for testable code
+- **Code Modularization:** Eliminated repetitive model client creation code
+- **Validation & Error Handling:** Both Factory and Builder classes include comprehensive input validation
+- **Clean Architecture:** Separation of concerns between model configuration, client creation, and agent building
+- **Import Path Resolution:** Learned to handle Python module imports in notebook environments with sys.path
+- **Type Safety:** Comprehensive type hints throughout Factory and Builder implementations
+
+**Next in Lesson 3:**
+- Async error handling patterns (retry, circuit breaker, graceful degradation)
+- Code refactoring to use new modular components
+- Complete modular design implementation
 
 ## AutoGen Framework Architecture (2024)
 
