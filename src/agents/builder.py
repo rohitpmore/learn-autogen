@@ -11,7 +11,7 @@ class AgentBuilder:
     def __init__(self, model_factory: ModelClientFactory):
         self.model_factory = model_factory
 
-    def create_agent(self, name: str, strategy: str, system_message: str) -> AssistantAgent:
+    def create_agent(self, name: str, strategy: str, system_message: str, tools: list = None) -> AssistantAgent:
         """
         Create an agent with a given strategy.
         """
@@ -26,9 +26,9 @@ class AgentBuilder:
         if system_message is None:
             system_message =  f"You are a helpful assistant. You are able to answer questions and help with tasks with strategy: {strategy}"
         
-        return AssistantAgent(name=name, model_client=model_client, system_message=system_message)
+        return AssistantAgent(name=name, model_client=model_client, system_message=system_message, tools=tools)
     
-    def create_custom_agent(self, name: str, model_client: OpenAIChatCompletionClient, system_message: str) -> AssistantAgent:
+    def create_custom_agent(self, name: str, model_client: OpenAIChatCompletionClient, system_message: str, tools: list = None) -> AssistantAgent:
         """
         Create a custom agent with a given model client.
         """
@@ -41,5 +41,5 @@ class AgentBuilder:
         if system_message is None:
             system_message = "You are a helpful assistant. You are able to answer questions and help with tasks."
         
-        return AssistantAgent(name=name, model_client=model_client, system_message=system_message)
+        return AssistantAgent(name=name, model_client=model_client, system_message=system_message, tools=tools)
     
